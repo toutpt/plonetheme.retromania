@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules xmlns="http://namespaces.plone.org/diazo" xmlns:css="http://namespaces.plone.org/diazo/css">
+
+    <theme href="theme.html" />
+    <notheme if-path="presentation_view"/>
+    <notheme if-path="source_editor.htm"/>
+    <notheme if-path="ploneimage.htm"/>
+    <notheme if-path="anchor.htm"/>
+    <notheme if-path="table.htm"/>
+    <notheme if-path="attributes.htm"/>
+    <notheme if-path="refbrowser_popup"/>
+
+    <!--  resources -->
+    <replace theme="/html/head/title" content="/html/head/title"/>
+    <drop css:theme="meta"/>
+    <prepend content='/html/head/*' theme='/html/head' />
+    <copy attributes="class" css:content="body" css:theme="body" />
+    <copy attributes="id dir" css:content="body" css:theme="body" />
+
+    <!-- logo -->
+    <merge attributes="id" css:theme=".logo" css:content="#portal-logo"/>
+    <replace css:theme=".logo a" css:content="#portal-logo"/>
+    <drop css:theme=".description1"/>
+    <after css:theme="#logo" css:content="#portal-personaltools"/>
+
+    <!-- MENU -->
+    <merge attributes="id class" css:theme="#nav" css:content="#portal-globalnav"/>
+    <drop css:theme=".page_item"/>
+    <append css:content="#portal-globalnav li" css:theme="#nav"/>
+<!--     <drop attributes="id" css:content="#portal-globalnav"/> -->
+
+<!-- SIDE BAR -->
+<!--     <drop css:theme="#sidebar ul"/> -->
+<!--     <append css:content='#portal-column-one .portletWrapper' css:theme='#sidebar' /> -->
+<!--     <append css:content='#portal-column-one .managePortletsLink' css:theme='#sidebar' /> -->
+<!--     <append css:content='#portletmanager-plone-leftcolumn' css:theme='#sidebar' /> -->
+<!--     <append css:content='#portlet-prefs' css:theme="#sidebar"/> -->
+
+<!--  CONTENT -->
+    <prepend css:theme=".content_right" css:content="#edit-bar"/>
+    <prepend css:theme=".mainbar_inner" css:content="#content"/>
+    <prepend css:theme=".sidebar" css:content="#portal-column-one .portlet"/>
+
+<!--     <drop css:theme=".post"/> -->
+<!--     <prepend css:theme="#page-bgbtm" css:content="#edit-bar" /> -->
+<!--     <prepend css:theme="#fcontent" css:content=".portalMessage" /> -->
+<!--     <prepend css:theme="#fcontent" css:content="#viewlet-above-content" /> -->
+<!--     <prepend css:theme="#fcontent" css:content="#content"/> -->
+<!--     <prepend css:theme="#fcontent" css:content="#viewlet-below-content" /> -->
+
+<!--     <rules css:if-content="body.template-search,body.template-search_form,body.template-overview-controlpanel"> -->
+<!--         <replace css:theme-children="#page" css:content="#viewlet-above-content" /> -->
+<!--         <append css:theme="#page" css:content="#content"/> -->
+<!--         <append css:theme="#page" css:content="#viewlet-below-content" /> -->
+<!--     </rules> -->
+    
+<!-- FOOTER -->
+<!--     <replace css:theme-children="#footer" css:content-children="#portal-footer"/> -->
+<!--     <append css:content="#portal-siteactions" css:theme="#footer"/> -->
+
+<!--  TOOLS -->
+<!--     <append css:content='#portal-personaltools-wrapper' css:theme='#menu' /> -->
+<!--     <drop css:content="h5.hiddenStructure"/> -->
+
+</rules>
